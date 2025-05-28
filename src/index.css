@@ -1,92 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* PRD Colors */
+    --prd-app-bg: 240 25% 96.5%; /* #F3F3F9 */
+    --prd-surface-bg: 0 0% 100%; /* #FFFFFF */
+    --prd-sidebar-bg: 220 13.3% 92.4%; /* #E9EBEC */
+    --prd-text-primary: 210 10.5% 14.9%; /* #212529 */
+    --prd-text-secondary: 227.1 9.8% 63.1%; /* #878A99 */
+    --prd-accent-blue: 201.3 70.1% 51%; /* #299CDB */
+    --prd-accent-red: 10.1 85.9% 61.2%; /* #F06548 */
+    --prd-accent-green: 145.2 63.2% 49%; /* #2ECC71 */
+    --prd-border-color: 220 13.3% 92.4%; /* #E9EBEC */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Shadcn/UI Base Variables - Light Theme */
+    --background: var(--prd-app-bg);
+    --foreground: var(--prd-text-primary);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --card: var(--prd-surface-bg);
+    --card-foreground: var(--prd-text-primary);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --popover: var(--prd-surface-bg);
+    --popover-foreground: var(--prd-text-primary);
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --primary: var(--prd-accent-blue);
+    --primary-foreground: var(--prd-surface-bg); /* White text on blue accent */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --secondary: var(--prd-border-color); /* Using border for secondary bg */
+    --secondary-foreground: var(--prd-text-primary);
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: var(--prd-border-color); /* Using border for muted bg */
+    --muted-foreground: var(--prd-text-secondary);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --accent: var(--prd-accent-blue);
+    --accent-foreground: var(--prd-surface-bg);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: var(--prd-accent-red);
+    --destructive-foreground: var(--prd-surface-bg);
 
-    --radius: 0.5rem;
+    --border: var(--prd-border-color);
+    --input: var(--prd-border-color);
+    --ring: var(--prd-accent-blue);
 
-    --sidebar-background: 0 0% 98%;
+    --radius: 0.375rem; /* Corresponds to PRD's default 'rounded-md' */
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Shadcn/UI Sidebar Variables - Light Theme */
+    --sidebar-background: var(--prd-sidebar-bg);
+    --sidebar-foreground: var(--prd-text-primary);
+    --sidebar-primary: var(--prd-accent-blue);
+    --sidebar-primary-foreground: var(--prd-surface-bg);
+    --sidebar-accent: 220 10% 90%; /* Slightly darker than sidebar-bg for hover */
+    --sidebar-accent-foreground: var(--prd-text-primary);
+    --sidebar-border: var(--prd-border-color);
+    --sidebar-ring: var(--prd-accent-blue);
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --font-sans: "Nunito", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Shadcn/UI Base Variables - Dark Theme (derived) */
+    --background: 220 15% 10%;      /* Dark cool gray e.g. #171A1D */
+    --foreground: 220 10% 95%;      /* Light cool gray e.g. #F0F2F2 */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 220 15% 15%;            /* Slightly lighter dark cool gray e.g. #212529 */
+    --card-foreground: 220 10% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 220 15% 15%;
+    --popover-foreground: 220 10% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 201.3 70.1% 55%;     /* Brighter blue for dark mode */
+    --primary-foreground: 210 40% 98%; /* Very light text */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 15% 20%;       /* Darker gray for secondary elements e.g. #2B3033 */
+    --secondary-foreground: 220 10% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 65%; /* Medium light gray e.g. #9BA1A6 */
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 201.3 70.1% 55%;
     --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 10.1 80% 65%;    /* Adjusted red for dark mode */
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 15% 25%;          /* Visible border on dark e.g. #363B40 */
+    --input: 220 15% 25%;
+    --ring: 201.3 70.1% 55%;        /* Brighter ring for dark mode */
+
+    /* Shadcn/UI Sidebar Variables - Dark Theme (derived) */
+    --sidebar-background: 220 15% 12%; /* e.g. #1A1D21 */
+    --sidebar-foreground: 220 10% 95%;
+    --sidebar-primary: 201.3 70.1% 55%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 220 15% 18%; /* e.g. #262A2E */
+    --sidebar-accent-foreground: 220 10% 95%;
+    --sidebar-border: 220 15% 25%;
+    --sidebar-ring: 201.3 70.1% 55%;
   }
 }
 
@@ -97,5 +110,8 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
